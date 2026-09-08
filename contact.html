@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact &mdash; Jonah Kim</title>
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="announce">&nbsp;</div>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html"><img src="images/c3beed53-9d1f-44f8-bf8a-115d478328e7__sign-logo.jpg" alt="Jonah Kim"></a>
+    <span class="tagline">Official site of cellist Jonah Kim</span>
+  </div>
+  <div class="social-icons">
+    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
+    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
+    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
+  </div>
+</header>
+<nav class="site-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="discography.html">Records</a></li>
+    <li><a href="listen.html">Stream</a></li>
+    <li><a href="gallery.html">Photos</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h1 class="page-title">Contact</h1>
+
+  <div class="notice">
+    This form currently opens your own email client with the message pre-filled (no server behind it, since the site is now static). If you&rsquo;d rather have replies land straight in an inbox, swap the form&rsquo;s <code>action</code> for a free service like Formspree, or replace it with a simple mailto link.
+  </div>
+
+  <form class="form-grid" action="mailto:booking@jonahcello.com" method="post" enctype="text/plain">
+    <div class="name-row">
+      <div>
+        <label for="fname">First Name (required)</label>
+        <input id="fname" name="First Name" type="text" required>
+      </div>
+      <div>
+        <label for="lname">Last Name (required)</label>
+        <input id="lname" name="Last Name" type="text" required>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email Address (required)</label>
+      <input id="email" name="Email" type="email" required>
+    </div>
+    <div>
+      <label for="subject">Subject (required)</label>
+      <input id="subject" name="Subject" type="text" required>
+    </div>
+    <div>
+      <label for="message">Message (required)</label>
+      <textarea id="message" name="Message" required></textarea>
+    </div>
+    <div>
+      <button type="submit" class="btn solid" style="cursor:pointer;border:none;font-family:inherit;">Submit</button>
+    </div>
+  </form>
+
+  <h2 class="section-title" style="margin-top:56px;">Social Media</h2>
+  <div class="social-icons">
+    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
+    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
+    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="social-icons">
+    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
+    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
+    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
+  </div>
+  <p>&copy; 2026 Jonah Kim. All rights reserved.</p>
+</footer>
+</body>
+</html>
