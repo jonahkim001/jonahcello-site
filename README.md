@@ -14,9 +14,11 @@ The repo is connected to Vercel. **Every push to `main` builds the site and publ
 
 | Path | What it is |
 |---|---|
-| `src/data/events.json` | **Concerts.** Drives the Calendar page and the search-engine event data. |
-| `src/pages/*.astro` | One file per page (`index.astro` is Home). Mostly plain HTML. |
-| `src/layouts/Base.astro` | Shared `<head>`, header, nav, and footer used by every page. |
+| `src/data/events.json` | **Concerts.** Drives the Calendar page, the "Next performance" bar at the top of every page, and the search-engine event data. |
+| `src/data/videos.json` | **Videos and recordings** on the Stream page, including which ones are featured. |
+| `src/pages/*.astro` | One file per page (`index.astro` is Home, `404.astro` is the page-not-found page). Mostly plain HTML. |
+| `src/layouts/Base.astro` | Shared `<head>`, announcement bar, header, nav, and footer used by every page. |
+| `src/components/` | Small reusable pieces: the social icons and the click-to-play YouTube thumbnail. |
 | `public/styles.css` | All styling. |
 | `public/images/` | Photos, album covers, and the logo (`jonah-signature.png`). |
 | `public/` | Everything else copied as-is: favicon, `robots.txt`, `sitemap.xml`. |
@@ -37,9 +39,11 @@ Pages keep their `.html` addresses (`/about.html`, `/calendar.html`, ...).
 - `tickets` (optional): ticket link; adds a Tickets button.
 - `listing` (optional): add this only once the date, start time, and venue are confirmed. It lets Google show the concert in event search results. Venues are defined once under `venues` at the top of the file.
 
-Events show in the order they appear in the file, so keep them in date order.
+Events show in the order they appear in the file, so keep them in date order. The bar at the top of every page shows the first event whose `end` date hasn't passed, with its Tickets link if it has one.
 
-**Adding a photo** (`src/pages/gallery.astro`): resize it to about 1600px on the long side first (a few hundred KB, not several MB), put it in `public/images/`, and add an `<img>` line. The gallery crops every photo to the same box; if a face gets cut off, add `style="object-position:50% 20%"` (a smaller second number shows more of the top).
+**Changing videos** (`src/data/videos.json`): each entry under `performances` has a `title`, a `meta` description, and a list of `videos`. A video's `id` is the part after `v=` in its YouTube link (`youtube.com/watch?v=XEVIkHJW6lE` → `XEVIkHJW6lE`). An entry can have an `audio` link instead of, or as well as, videos. To feature a video at the top of the page, add its `id` to the `featured` list; optionally give that video a `featuredTitle` and `featuredMeta` to describe it on its own.
+
+**Adding a photo** (`src/pages/gallery.astro`): resize it to about 1600px on the long side first (a few hundred KB, not several MB), put it in `public/images/`, and copy an existing `<a class="gallery-item">` line, changing the image path in both places. Clicking a photo opens it full size. The gallery crops every photo to the same box; if a face gets cut off, add `style="object-position:50% 20%"` (a smaller second number shows more of the top).
 
 **Changing the nav, header, or footer**: edit `src/layouts/Base.astro` once; every page picks it up.
 
