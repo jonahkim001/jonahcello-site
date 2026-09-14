@@ -1,0 +1,15 @@
+---
+// A YouTube thumbnail that swaps in the real player when clicked, so pages with many
+// videos don't load dozens of players up front. Without JavaScript it links to YouTube.
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+<div class="frame">
+  <a class="yt" href={`https://www.youtube.com/watch?v=${id}`} data-yt={id} data-title={title} aria-label={`Play video: ${title}`}>
+    <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy">
+  </a>
+</div>

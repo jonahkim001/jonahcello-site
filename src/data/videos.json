@@ -1,0 +1,118 @@
+{
+  "featured": ["XEVIkHJW6lE", "ywSxUU7sf8g", "VuhUz6JgEak", "gxapciDizs8"],
+  "performances": [
+    {
+      "title": "Songs That Make Us Dance",
+      "meta": "Live from Festival Mozaic, October 2, 2022, with Dominic Cheli, piano, featuring Julia Rowe & Wei Wang, ballet. Kodály from Approaching Autumn — filmed by Kim Huynh.",
+      "videos": [
+        { "id": "XEVIkHJW6lE", "title": "Dvořák: Silent Woods", "featuredTitle": "Dvořák Silent Woods", "featuredMeta": "With Dominic Cheli, piano, and Julia Rowe & Wei Wang, ballet. Live from Festival Mozaic, October 2, 2022." },
+        { "id": "gxapciDizs8", "title": "Barber: Cello Sonata", "featuredTitle": "Barber Cello Sonata", "featuredMeta": "Complete live performance with Dominic Cheli, piano. Festival Mozaic, October 2, 2022." },
+        { "id": "Te85lVxlhGg", "title": "Seyfried: Dancing in the Eye of the Storm (premiere)" },
+        { "id": "RGQM0Qrgv7Q", "title": "Kodály: Sonata for Solo Cello, Op. 8" },
+        { "id": "1g1uUAHb03M", "title": "Kodály: Sonata for Solo Cello, Op. 8" },
+        { "id": "sng9QL6c_t0", "title": "Kodály: Sonata for Solo Cello, Op. 8" }
+      ]
+    },
+    {
+      "title": "Chopin Sonata",
+      "meta": "Jonah Kim, cello; Scott Cuellar, piano. Chopin Sonata for Cello & Piano in G minor, Op. 65. Performed live July 2020 at CPMF, San Antonio, TX.",
+      "audio": "https://static1.squarespace.com/static/5bca2ec4fd679331a0f8b108/t/5eb9c5ab19290276575ab005/1589233112834/03+Chopin+-+Sonata+in+G+Minor%2C+Op.+65+-+I.+Allegro+moderato.mp3"
+    },
+    {
+      "title": "Bach Chaconne",
+      "meta": "J.S. Bach – The Chaconne, Partita for Violin No. 2 in D minor, BWV.1004. Arranged by Jonah Kim with notes by Edward Aldwell, featuring Julia Rowe, soloist, San Francisco Ballet. September 11, 2020 at St. Ignatius, SF, CA.",
+      "videos": [
+        { "id": "VuhUz6JgEak", "title": "Bach Chaconne", "featuredMeta": "Arranged by Jonah Kim, featuring Julia Rowe, soloist, San Francisco Ballet. St. Ignatius, San Francisco, September 11, 2020." }
+      ]
+    },
+    {
+      "title": "Brahms Sonata No. 1 in E minor",
+      "meta": "Op. 38: I. Allegro non troppo · II. Allegretto quasi Menuetto · III. Allegro. With pianist Miles Graber, October 2018 at St. Mary’s Cathedral, San Francisco, CA.",
+      "videos": [{ "id": "ggvX4Kq1hy0", "title": "Brahms Sonata No. 1" }]
+    },
+    {
+      "title": "Fauré Élégie",
+      "meta": "Gabriel Fauré – Élegie, Op. 24. Featuring Julia Rowe, SF Ballet, for Music in May Festival 2020, Santa Cruz, CA.",
+      "videos": [{ "id": "iC65zCCsUNQ", "title": "Fauré Élégie" }]
+    },
+    {
+      "title": "Mascagni Intermezzo",
+      "meta": "Intermezzo from Cavalleria Rusticana. Featuring Julia Rowe, SF Ballet, April 2020, San Francisco, CA.",
+      "videos": [{ "id": "oPCcVBI3he4", "title": "Mascagni Intermezzo" }]
+    },
+    {
+      "title": "Fantasie über Kleinrussische Themen Lieder",
+      "meta": "Popper – performed by Jonah Kim, cello, around age 16, with pianist Lio Kuokman in Philadelphia, PA."
+    },
+    {
+      "title": "Beethoven “Magic Flute” Variations",
+      "meta": "7 Variations on ‘Bei Männern welche Liebe fühlen’ WoO 46. With pianist Jeffrey Sykes, December 2019 at St. Mary’s Cathedral, San Francisco, CA.",
+      "videos": [{ "id": "8DlmyXzt0Lg", "title": "Beethoven Magic Flute Variations" }]
+    },
+    {
+      "title": "Beethoven Sonata in F Major",
+      "meta": "Op. 5 No. 1: I. Adagio sostenuto – Allegro · II. Rondo. Allegro vivace. With pianist Jeffrey Sykes, December 2019 at St. Mary’s Cathedral, San Francisco, CA.",
+      "videos": [{ "id": "e2CCibudZNY", "title": "Beethoven Sonata in F Major" }]
+    },
+    {
+      "title": "Tchaikovsky Rococo Variations",
+      "meta": "Variations on a Rococo Theme, Op. 33. With Orquesta Sinfonica Nacional, conducted by Jose Antonio Molina.",
+      "videos": [{ "id": "ywSxUU7sf8g", "title": "Tchaikovsky Rococo Variations" }]
+    },
+    {
+      "title": "Kreisler Tambourin Chinois",
+      "meta": "Op. 3. With Sean Kennard at the piano, April 2016, St. John’s, San Francisco. Arranged by Jonah Kim (originally for violin).",
+      "videos": [{ "id": "IPCamhMi4z4", "title": "Kreisler Tambourin Chinois" }]
+    },
+    {
+      "title": "Vaughan Williams Piano Quintet",
+      "meta": "Piano Quintet in C minor. With John Novacek, piano; Scott Yoo, violin; Jessica Oudin, viola; Jonah Kim, cello; Susan Cahill, bass. Festival Mozaic, July 2017.",
+      "videos": [{ "id": "3na3sPQXmHA", "title": "Vaughan Williams Piano Quintet" }]
+    },
+    {
+      "title": "Debussy Sonata",
+      "meta": "Sonata for Cello and Piano. Alliance Française’s French Classical Music Festival, Tateuchi Hall, Mountain View, CA, June 19, 2015.",
+      "videos": [{ "id": "jcN_iu4hJ94", "title": "Debussy Sonata" }]
+    },
+    {
+      "title": "Granero Concerto da Camera",
+      "meta": "Jose Gonzalez Granero – cello cadenza. With Stanford Philharmonia, conducted by Anna Wittstruck, Bing Concert Hall, Stanford, CA.",
+      "videos": [{ "id": "WggFLadMXyw", "title": "Granero Concerto da Camera, cello cadenza" }]
+    },
+    {
+      "title": "Dvorak Songs My Mother Taught Me",
+      "meta": "With Sheridan Seyfried, piano. Rehoboth Beach, DE, 2018.",
+      "videos": [{ "id": "z2iICOltbGc", "title": "Dvorak Songs My Mother Taught Me" }]
+    },
+    {
+      "title": "Roussel Serenade",
+      "meta": "Op. 30. With Alice K. Dade, flute; Meredith Clark, harp; Scott Yoo, violin; Jessica Chang, viola; Jonah Kim, cello. Cuesta College, February 25, 2018.",
+      "videos": [{ "id": "6O05NogwN-0", "title": "Roussel Serenade" }]
+    },
+    {
+      "title": "Offenbach Les Larmes de Jacqueline",
+      "meta": "Op. 76 No. 2. With Jiyun Yoo, piano. Dallas, TX, 2017.",
+      "videos": [{ "id": "IDtTlpvh3w4", "title": "Offenbach Les Larmes de Jacqueline" }]
+    },
+    {
+      "title": "Schubert Cello Quintet",
+      "meta": "D.956. With Scott Yoo & Aurelia Duca, violin; Maurycy Banaszek, viola; Jonah Kim & Michael Katz, cello. Recorded live July 29, 2018.",
+      "videos": [{ "id": "kwB8ozuj3sI", "title": "Schubert Cello Quintet" }]
+    },
+    {
+      "title": "Tower – Rising",
+      "meta": "Joan Tower (2009). With Alice K. Dade, flute; Dennis Kim & Clinton Dewing, violin; Jessica Oudin, viola; Jonah Kim, cello. Festival Mozaic, July 20, 2018.",
+      "videos": [{ "id": "7Ppv2A2VMKg", "title": "Tower Rising" }]
+    },
+    {
+      "title": "Rockwood Deer Chase",
+      "meta": "Don Stover. “Celtic to Classical” performs a bluegrass standard, Rehoboth Beach, DE, August 8, 2018.",
+      "videos": [{ "id": "peVYBa-kLms", "title": "Rockwood Deer Chase" }]
+    },
+    {
+      "title": "Bach Chaconne (2006)",
+      "meta": "J.S. Bach – Chaconne from Partita for Violin No. 2. Trinity Church, Philadelphia, PA, 2006. Transcribed for cello by Jonah Kim with notes by Edward Aldwell.",
+      "videos": [{ "id": "kjrVXM2iChA", "title": "Bach Chaconne (2006), Part I" }]
+    }
+  ]
+}

@@ -263,6 +263,34 @@ button.btn { cursor: pointer; border: none; font-family: inherit; }
 }
 .video-item .meta { color: var(--muted); font-size: 0.85rem; white-space: pre-line; }
 .video-item audio { width: 100%; margin-top: 10px; }
+.video-item .stack .frame { margin-bottom: 0; }
+.video-caption { margin: 6px 0 0; font-size: 0.8rem; color: var(--muted); }
+
+/* YouTube thumbnail that becomes the player when clicked */
+.frame .yt { position: absolute; inset: 0; display: block; }
+.frame .yt img { width: 100%; height: 100%; object-fit: cover; }
+.frame .yt::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 68px; height: 48px;
+  margin: -24px 0 0 -34px;
+  border-radius: 12px;
+  background: rgba(46, 25, 52, 0.85);
+  transition: background 0.15s;
+}
+.frame .yt::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  z-index: 1;
+  margin: -9px 0 0 -6px;
+  border-style: solid;
+  border-width: 9px 0 9px 16px;
+  border-color: transparent transparent transparent #fff;
+}
+.frame .yt:hover::after, .frame .yt:focus-visible::after { background: var(--accent); }
+.frame .yt:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
 .video-item .stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; }
 
 .gallery-grid {
