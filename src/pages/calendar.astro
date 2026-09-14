@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import data from '../data/events.json';
+
+// Group events under a heading for each year, in the order they appear in events.json.
+const years = [];
+for (const event of data.events) {
+  const year = event.end.slice(0, 4);
+  let group = years.find((g) => g.year === year);
+  if (!group) years.push((group = { year, events: [] }));
+  group.events.push(event);
+}
+
+// Search-engine event data, built from events that have a "listing" (confirmed date, time, and venue).
+const jonah = { '@type': 'Person', name: 'Jonah Kim', url: 'https://www.jonahcello.com/' };
+const performer = (p) => (p.group ? { '@type': 'PerformingGroup', name: p.group } : p.person === 'Jonah Kim' ? jonah : { '@type': 'Person', name: p.person });
+const place = (key) => {
+  const v = data.venues[key];
+  return {
+    '@type': 'Place',
+    name: v.name,
+    address: { '@type': 'PostalAddress', streetAddress: v.street, addressLocality: v.city, addressRegion: v.region, postalCode: v.postalCode, addressCountry: 'US' },
+  };
+};
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': data.events
+    .filter((event) => event.listing)
+    .flatMap((event) =>
+      event.listing.showings.map((showing) => ({
+        '@type': 'Event',
+        name: event.listing.name,
+        startDate: showing.start,
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        location: place(showing.venue),
+        image: 'https://www.jonahcello.com/images/jonah-kim-hero.jpg',
+        performer: event.listing.performers.map(performer),
+        offers: { '@type': 'Offer', url: event.tickets },
+      })),
+    ),
+};
+---
+<Base title="Calendar — Jonah Kim" description="Upcoming performances by cellist Jonah Kim." path="/calendar.html" active="calendar">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <h1 class="page-title">Calendar</h1>
+  <p class="season-intro">{data.season}</p>
+
+  {years.map((group) => (
+    <>
+      <h2 class="event-year">{group.year}</h2>
+      <ol class="events">
+        {group.events.map((event) => (
+          <li class="event" data-end={event.end}>
+            <div class="event-date"><span class="month">{event.month}</span><span class="day">{event.day}</span></div>
+            <div class="event-body">
+              {event.badge && <span class="badge">{event.badge}</span>}
+              <h3 set:html={event.title} />
+              {event.details?.map((line) => <p>{line}</p>)}
+              {event.venue?.map((line) => <p class="venue">{line}</p>)}
+              {event.tickets && <a class="btn event-tickets" href={event.tickets} target="_blank" rel="noopener">Tickets</a>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </>
+  ))}
+
+  <script slot="end" is:inline>
+    // Fade out events whose last day has passed, so the list stays current without edits.
+    (function () {
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      document.querySelectorAll('.event[data-end]').forEach(function (el) {
+        if (new Date(el.dataset.end + 'T23:59:59') < today) el.classList.add('past');
+      });
+    })();
+  </script>
+</Base>

@@ -1,50 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About &mdash; Jonah Kim</title>
-<meta name="description" content="Biography and press for cellist Jonah Kim, called &ldquo;Pablo Casals reincarnate&rdquo; by the Korean International Arts Review.">
-<link rel="canonical" href="https://www.jonahcello.com/about.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Jonah Kim, cello">
-<meta property="og:title" content="About &mdash; Jonah Kim">
-<meta property="og:description" content="Biography and press for cellist Jonah Kim, called &ldquo;Pablo Casals reincarnate&rdquo; by the Korean International Arts Review.">
-<meta property="og:url" content="https://www.jonahcello.com/about.html">
-<meta property="og:image" content="https://www.jonahcello.com/images/jonah-kim-hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="announce">&nbsp;</div>
-<header class="site-header">
-  <div class="brand">
-    <a href="index.html"><img src="images/jonah-signature.png" alt="Jonah Kim"></a>
-    <span class="tagline">Official site of cellist Jonah Kim</span>
-  </div>
-  <div class="social-icons">
-    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
-    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
-    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
-  </div>
-</header>
-<nav class="site-nav">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="discography.html">Records</a></li>
-    <li><a href="listen.html">Stream</a></li>
-    <li><a href="gallery.html">Photos</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="calendar.html">Calendar</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
-<main>
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About — Jonah Kim" description="Biography and press for cellist Jonah Kim, called “Pablo Casals reincarnate” by the Korean International Arts Review." path="/about.html" active="about">
   <h1 class="page-title">About</h1>
 
   <div class="section-split">
@@ -106,15 +63,4 @@
     <blockquote class="pull-quote">&ldquo;Cellist Jonah Kim [gave] the most vivid and memorable performance of the evening&hellip; The standing ovation was punctuated with shouts of bravo.&rdquo;<cite>Scott MacClelland, Performing Arts Monterey</cite></blockquote>
   </div>
 
-</main>
-
-<footer class="site-footer">
-  <div class="social-icons">
-    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
-    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
-    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
-  </div>
-  <p>&copy; 2026 Jonah Kim. All rights reserved.</p>
-</footer>
-</body>
-</html>
+</Base>

@@ -1,0 +1,120 @@
+{
+  "season": "2026–27 Season",
+  "venues": {
+    "civic": { "name": "Santa Cruz Civic Auditorium", "street": "307 Church St", "city": "Santa Cruz", "region": "CA", "postalCode": "95060" },
+    "mello": { "name": "Henry J. Mello Center for the Performing Arts", "street": "250 E Beach St", "city": "Watsonville", "region": "CA", "postalCode": "95076" },
+    "peace": { "name": "Peace United Church", "street": "900 High St", "city": "Santa Cruz", "region": "CA", "postalCode": "95060" },
+    "barclay": { "name": "Irvine Barclay Theatre", "street": "4242 Campus Dr", "city": "Irvine", "region": "CA", "postalCode": "92612" }
+  },
+  "events": [
+    {
+      "month": "Sep", "day": "20", "end": "2026-09-20",
+      "title": "Kol Nidrei",
+      "venue": ["Peninsula Temple Sholom"]
+    },
+    {
+      "month": "Sep", "day": "21", "end": "2026-09-21",
+      "title": "Music for Yom Kippur",
+      "venue": ["Peninsula Temple Sholom"]
+    },
+    {
+      "month": "Oct", "day": "3–4", "end": "2026-10-04",
+      "title": "Santa Cruz Symphony",
+      "details": ["“United Sounds of America” · Principal Cello"],
+      "venue": ["Sat 7:30 PM, Civic Auditorium, Santa Cruz", "Sun 2:00 PM, Mello Center, Watsonville"],
+      "tickets": "https://www.santacruztickets.com/Online/default.asp?doWork::WScontent::loadArticle=Load&BOparam::WScontent::loadArticle::article_id=55599C15-4E99-4874-A731-43B7BAA1D5F0",
+      "listing": {
+        "name": "Santa Cruz Symphony: United Sounds of America",
+        "performers": [{ "group": "Santa Cruz Symphony" }, { "person": "Jonah Kim" }],
+        "showings": [
+          { "start": "2026-10-03T19:30:00-07:00", "venue": "civic" },
+          { "start": "2026-10-04T14:00:00-07:00", "venue": "mello" }
+        ]
+      }
+    },
+    {
+      "month": "Oct", "day": "9", "end": "2026-10-09",
+      "title": "San Francisco Music Festival",
+      "details": ["Recital with pianist Alon Goldstein"]
+    },
+    {
+      "month": "Oct", "day": "11", "end": "2026-10-11",
+      "title": "Distinguished Artists Concert & Lecture Series",
+      "details": ["Recital with pianist Alon Goldstein"],
+      "venue": ["4:00 PM, Peace United Church, Santa Cruz"],
+      "tickets": "https://www.purplepass.com/events/382877-cellist-jonah-kim-and-pianist-alon-goldstein-oct-11th-2026",
+      "listing": {
+        "name": "Jonah Kim and Alon Goldstein: Distinguished Artists Concert & Lecture Series",
+        "performers": [{ "person": "Jonah Kim" }, { "person": "Alon Goldstein" }],
+        "showings": [{ "start": "2026-10-11T16:00:00-07:00", "venue": "peace" }]
+      }
+    },
+    {
+      "month": "Nov", "day": "14–15", "end": "2026-11-15",
+      "title": "Santa Cruz Symphony",
+      "details": ["“Tchaikovsky & Mendelssohn” · Principal Cello"],
+      "venue": ["Sat 7:30 PM, Civic Auditorium, Santa Cruz", "Sun 2:00 PM, Mello Center, Watsonville"],
+      "tickets": "https://www.santacruztickets.com/Online/default.asp?doWork::WScontent::loadArticle=Load&BOparam::WScontent::loadArticle::article_id=444C90A6-ADB8-4AF7-AFA0-2EECFF2C7E1F",
+      "listing": {
+        "name": "Santa Cruz Symphony: Tchaikovsky & Mendelssohn",
+        "performers": [{ "group": "Santa Cruz Symphony" }, { "person": "Jonah Kim" }],
+        "showings": [
+          { "start": "2026-11-14T19:30:00-08:00", "venue": "civic" },
+          { "start": "2026-11-15T14:00:00-08:00", "venue": "mello" }
+        ]
+      }
+    },
+    {
+      "month": "Nov", "day": "21–22", "end": "2026-11-22",
+      "title": "San Francisco Music Festival",
+      "details": ["Guest artists · Details coming soon"]
+    },
+    {
+      "month": "Dec", "day": "4–5", "end": "2026-12-05",
+      "badge": "To be confirmed",
+      "title": "Carriage House",
+      "venue": ["Boston"]
+    },
+    {
+      "month": "Jan", "day": "24", "end": "2027-01-24",
+      "title": "Trio Barclay",
+      "venue": ["5:00 PM, Irvine Barclay Theatre, Irvine"],
+      "tickets": "https://www.thebarclay.org/online/article/triobarclay2027",
+      "listing": {
+        "name": "Trio Barclay",
+        "performers": [{ "group": "Trio Barclay" }, { "person": "Jonah Kim" }],
+        "showings": [{ "start": "2027-01-24T17:00:00-08:00", "venue": "barclay" }]
+      }
+    },
+    {
+      "month": "Feb", "day": "TBA", "end": "2027-02-28",
+      "title": "San Francisco Music Festival",
+      "details": ["Guest artists · Details coming soon"]
+    },
+    {
+      "month": "Mar", "day": "14", "end": "2027-03-14",
+      "title": "Bach Solo Cello Suites",
+      "venue": ["Samper Hall, Cabrillo College, Santa Cruz"]
+    },
+    {
+      "month": "Apr", "day": "TBA", "end": "2027-04-30",
+      "title": "Dvorak Concerto",
+      "venue": ["San Miguel de Allende"]
+    },
+    {
+      "month": "May", "day": "16", "end": "2027-05-16",
+      "title": "Tchaikovsky <em>Souvenir de Florence</em> & more",
+      "venue": ["Samper Hall, Cabrillo College, Santa Cruz"]
+    },
+    {
+      "month": "Jun", "day": "10", "end": "2027-06-10",
+      "title": "Jonah Kim & Jaron Lanier",
+      "venue": ["Kuumbwa Jazz Center, Santa Cruz"]
+    },
+    {
+      "month": "Aug", "day": "TBA", "end": "2027-08-31",
+      "title": "Summer Festival (FASMA)",
+      "venue": ["Music Society of San Miguel de Allende"]
+    }
+  ]
+}

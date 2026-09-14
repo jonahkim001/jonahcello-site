@@ -2,47 +2,67 @@
 
 Official site of cellist Jonah Kim: https://www.jonahcello.com
 
-Plain static HTML and CSS. There is no build step or framework; every page is a standalone `.html` file.
+Built with [Astro](https://astro.build), which turns the files in `src/` into plain static HTML pages. The shared header, nav, and footer live in one file, and concert details live in one data file, so most edits happen in a single place.
 
 ## How it deploys
 
-The repo is connected to Vercel. **Every push to `main` deploys to the live site within about a minute.** Pushes to any other branch get a private preview URL instead, which is the safer way to try out larger changes.
+The repo is connected to Vercel. **Every push to `main` builds the site and publishes it within about a minute.** Pushes to any other branch get a private preview URL instead, which is the safer way to try out larger changes.
 
-`www.jonahcello.com` is the main address; `jonahcello.com` forwards to it.
+`www.jonahcello.com` is the main address; `jonahcello.com` forwards to it. If a push breaks the build, Vercel keeps the previous version live.
 
-## Layout
+## Where things are
 
-| File | Page |
+| Path | What it is |
 |---|---|
-| `index.html` | Home |
-| `about.html` | About (bio and reviews) |
-| `discography.html` | Records |
-| `listen.html` | Stream (videos and audio) |
-| `gallery.html` | Photos |
-| `store.html` | Store |
-| `calendar.html` | Calendar |
-| `contact.html` | Contact |
-| `styles.css` | All styling, shared by every page |
-| `images/` | Photos, album covers, and the logo (`jonah-signature.png`) |
-| `vercel.json` | Redirects from old Squarespace addresses (e.g. `/about`, `/concerts`) |
-| `robots.txt`, `sitemap.xml` | Help search engines find the pages |
+| `src/data/events.json` | **Concerts.** Drives the Calendar page and the search-engine event data. |
+| `src/pages/*.astro` | One file per page (`index.astro` is Home). Mostly plain HTML. |
+| `src/layouts/Base.astro` | Shared `<head>`, header, nav, and footer used by every page. |
+| `public/styles.css` | All styling. |
+| `public/images/` | Photos, album covers, and the logo (`jonah-signature.png`). |
+| `public/` | Everything else copied as-is: favicon, `robots.txt`, `sitemap.xml`. |
+| `vercel.json` | Build settings and redirects from old Squarespace addresses (e.g. `/about`, `/concerts`). |
 
-The header, nav, and footer are copied into every page. **When you change one of them, change all eight pages.**
+Pages keep their `.html` addresses (`/about.html`, `/calendar.html`, ...).
 
 ## Common edits
 
-**Adding or changing a concert** (`calendar.html`): copy an existing `<li class="event">` block. Set `data-end` to the event's last day (`YYYY-MM-DD`); the page fades out events after that date automatically. If the event has a confirmed date, time, and venue, also add it to the `application/ld+json` block at the top of the file so search engines can list it.
+**Adding or changing a concert**: edit `src/data/events.json`. Copy an existing event and change it. Fields:
 
-**Adding a photo** (`gallery.html`): resize it to about 1600px on the long side first (a few hundred KB, not several MB), put it in `images/`, and add an `<img>` line. The gallery crops every photo to the same box; if a face gets cut off, add `style="object-position:50% 20%"` (a smaller second number shows more of the top).
+- `month`, `day`: what shows in the date column (`"day": "3–4"` or `"TBA"` are fine).
+- `end`: the event's last day as `YYYY-MM-DD`. Used to sort it under a year and to fade it out once it has passed.
+- `title`: the event name. Simple HTML like `<em>` is allowed.
+- `badge` (optional): a small tag above the title, e.g. `"To be confirmed"`.
+- `details` (optional): lines of plain text under the title.
+- `venue` (optional): smaller grey lines for times and places.
+- `tickets` (optional): ticket link; adds a Tickets button.
+- `listing` (optional): add this only once the date, start time, and venue are confirmed. It lets Google show the concert in event search results. Venues are defined once under `venues` at the top of the file.
 
-**Page titles and share previews**: each page's `<head>` has a description plus `og:` tags that control how links look when shared by text or on social media.
+Events show in the order they appear in the file, so keep them in date order.
 
-## Previewing locally
+**Adding a photo** (`src/pages/gallery.astro`): resize it to about 1600px on the long side first (a few hundred KB, not several MB), put it in `public/images/`, and add an `<img>` line. The gallery crops every photo to the same box; if a face gets cut off, add `style="object-position:50% 20%"` (a smaller second number shows more of the top).
 
-From this folder, run any static file server, for example:
+**Changing the nav, header, or footer**: edit `src/layouts/Base.astro` once; every page picks it up.
+
+**Page titles and share previews**: each page passes a `title` and `description` to `<Base>` at the top of its file. These control the browser tab, Google results, and link previews.
+
+Editing on GitHub directly works for all of the above: open the file, click the pencil icon, and commit.
+
+## Working locally
+
+Requires Node.js 22.12 or newer.
 
 ```bash
-python3 -m http.server 4610
+npm install
 ```
 
-Then open http://localhost:4610. (Redirects in `vercel.json` only work on Vercel.)
+```bash
+npm run dev
+```
+
+Then open the address it prints (usually http://localhost:4321). To check the exact files that will be published:
+
+```bash
+npm run build
+```
+
+The result lands in `dist/`. Redirects in `vercel.json` only work on Vercel.

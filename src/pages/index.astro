@@ -1,65 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jonah Kim, cello</title>
-<meta name="description" content="Official site of cellist Jonah Kim: upcoming concerts, recordings, videos, and booking.">
-<link rel="canonical" href="https://www.jonahcello.com/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Jonah Kim, cello">
-<meta property="og:title" content="Jonah Kim, cello">
-<meta property="og:description" content="Official site of cellist Jonah Kim: upcoming concerts, recordings, videos, and booking.">
-<meta property="og:url" content="https://www.jonahcello.com/">
-<meta property="og:image" content="https://www.jonahcello.com/images/jonah-kim-hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jonah Kim",
-  "jobTitle": "Cellist",
-  "url": "https://www.jonahcello.com/",
-  "image": "https://www.jonahcello.com/images/jonah-kim-hero.jpg",
-  "sameAs": [
-    "https://www.youtube.com/jonahkimcello",
-    "https://www.facebook.com/jonahkimcello/",
-    "https://www.instagram.com/jonahkimcello"
-  ]
-}
-</script>
-</head>
-<body>
-<div class="announce">&nbsp;</div>
-<header class="site-header">
-  <div class="brand">
-    <a href="index.html"><img src="images/jonah-signature.png" alt="Jonah Kim"></a>
-    <span class="tagline">Official site of cellist Jonah Kim</span>
-  </div>
-  <div class="social-icons">
-    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
-    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
-    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
-  </div>
-</header>
-<nav class="site-nav">
-  <ul>
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="discography.html">Records</a></li>
-    <li><a href="listen.html">Stream</a></li>
-    <li><a href="gallery.html">Photos</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="calendar.html">Calendar</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+---
+import Base from '../layouts/Base.astro';
 
-<main>
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jonah Kim',
+  jobTitle: 'Cellist',
+  url: 'https://www.jonahcello.com/',
+  image: 'https://www.jonahcello.com/images/jonah-kim-hero.jpg',
+  sameAs: [
+    'https://www.youtube.com/jonahkimcello',
+    'https://www.facebook.com/jonahkimcello/',
+    'https://www.instagram.com/jonahkimcello',
+  ],
+};
+---
+<Base title="Jonah Kim, cello" description="Official site of cellist Jonah Kim: upcoming concerts, recordings, videos, and booking." path="/" active="home">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(person)} />
 
   <section class="hero">
     <div class="media">
@@ -133,15 +90,4 @@
     </div>
   </section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="social-icons">
-    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
-    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
-    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
-  </div>
-  <p>&copy; 2026 Jonah Kim. All rights reserved.</p>
-</footer>
-</body>
-</html>
+</Base>
