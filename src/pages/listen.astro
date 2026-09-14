@@ -54,20 +54,4 @@ const more = data.performances
       </div>
     ))}
   </div>
-
-  <script slot="end" is:inline>
-    // Replace a clicked thumbnail with the YouTube player.
-    document.addEventListener('click', function (e) {
-      var link = e.target.closest && e.target.closest('a[data-yt]');
-      if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
-      e.preventDefault();
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/' + link.dataset.yt + '?autoplay=1';
-      iframe.title = link.dataset.title;
-      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      iframe.allowFullscreen = true;
-      link.replaceWith(iframe);
-      iframe.focus();
-    });
-  </script>
 </Base>

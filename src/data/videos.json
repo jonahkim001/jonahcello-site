@@ -1,6 +1,18 @@
 {
-  "featured": ["XEVIkHJW6lE", "ywSxUU7sf8g", "VuhUz6JgEak", "gxapciDizs8"],
+  "featured": ["SLEUMCG3bvU", "XEVIkHJW6lE", "ywSxUU7sf8g", "VuhUz6JgEak"],
   "performances": [
+    {
+      "title": "Mark Abel: A Door Opens",
+      "meta": "With Keisuke Nakagoshi, piano. Kanbar Performing Arts Center, San Francisco, February 9, 2026. Audio and video by Matt Carr. From Mark Abel’s Delos album 4.4.2.",
+      "videos": [
+        { "id": "SLEUMCG3bvU", "title": "Mark Abel: A Door Opens (Part 1)", "featuredTitle": "Mark Abel: A Door Opens (Part 1)" }
+      ]
+    },
+    {
+      "title": "Mark Abel: Approaching Autumn",
+      "meta": "Live complete performance with Dominic Cheli, piano, 2023. The title work of Jonah’s Delos album Approaching Autumn.",
+      "videos": [{ "id": "XQPgAnAn1kE", "title": "Mark Abel: Approaching Autumn (live, 2023)" }]
+    },
     {
       "title": "Songs That Make Us Dance",
       "meta": "Live from Festival Mozaic, October 2, 2022, with Dominic Cheli, piano, featuring Julia Rowe & Wei Wang, ballet. Kodály from Approaching Autumn — filmed by Kim Huynh.",
@@ -8,9 +20,9 @@
         { "id": "XEVIkHJW6lE", "title": "Dvořák: Silent Woods", "featuredTitle": "Dvořák Silent Woods", "featuredMeta": "With Dominic Cheli, piano, and Julia Rowe & Wei Wang, ballet. Live from Festival Mozaic, October 2, 2022." },
         { "id": "gxapciDizs8", "title": "Barber: Cello Sonata", "featuredTitle": "Barber Cello Sonata", "featuredMeta": "Complete live performance with Dominic Cheli, piano. Festival Mozaic, October 2, 2022." },
         { "id": "Te85lVxlhGg", "title": "Seyfried: Dancing in the Eye of the Storm (premiere)" },
-        { "id": "RGQM0Qrgv7Q", "title": "Kodály: Sonata for Solo Cello, Op. 8" },
-        { "id": "1g1uUAHb03M", "title": "Kodály: Sonata for Solo Cello, Op. 8" },
-        { "id": "sng9QL6c_t0", "title": "Kodály: Sonata for Solo Cello, Op. 8" }
+        { "id": "sng9QL6c_t0", "title": "Kodály: Sonata for Solo Cello, Op. 8 (Part 1)" },
+        { "id": "RGQM0Qrgv7Q", "title": "Kodály: Sonata for Solo Cello, Op. 8 (Part 2)" },
+        { "id": "1g1uUAHb03M", "title": "Kodály: Sonata for Solo Cello, Op. 8 (Part 3)" }
       ]
     },
     {
@@ -39,10 +51,6 @@
       "title": "Mascagni Intermezzo",
       "meta": "Intermezzo from Cavalleria Rusticana. Featuring Julia Rowe, SF Ballet, April 2020, San Francisco, CA.",
       "videos": [{ "id": "oPCcVBI3he4", "title": "Mascagni Intermezzo" }]
-    },
-    {
-      "title": "Fantasie über Kleinrussische Themen Lieder",
-      "meta": "Popper – performed by Jonah Kim, cello, around age 16, with pianist Lio Kuokman in Philadelphia, PA."
     },
     {
       "title": "Beethoven “Magic Flute” Variations",
@@ -111,7 +119,7 @@
     },
     {
       "title": "Bach Chaconne (2006)",
-      "meta": "J.S. Bach – Chaconne from Partita for Violin No. 2. Trinity Church, Philadelphia, PA, 2006. Transcribed for cello by Jonah Kim with notes by Edward Aldwell.",
+      "meta": "J.S. Bach – Chaconne from Partita for Violin No. 2. Presented by Borealis Music Society at Trinity Church, Philadelphia, PA, 2006. Transcribed for cello by Jonah Kim with notes by Edward Aldwell.",
       "videos": [{ "id": "kjrVXM2iChA", "title": "Bach Chaconne (2006), Part I" }]
     }
   ]

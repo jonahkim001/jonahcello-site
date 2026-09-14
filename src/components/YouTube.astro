@@ -13,3 +13,19 @@ const { id, title } = Astro.props;
     <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy">
   </a>
 </div>
+
+<script>
+  // Replace a clicked thumbnail with the YouTube player.
+  document.addEventListener('click', (e) => {
+    const link = e.target instanceof Element ? e.target.closest<HTMLAnchorElement>('a[data-yt]') : null;
+    if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${link.dataset.yt}?autoplay=1`;
+    iframe.title = link.dataset.title ?? 'YouTube video';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    link.replaceWith(iframe);
+    iframe.focus();
+  });
+</script>
