@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import YouTube from '../components/YouTube.astro';
+import eventData from '../data/events.json';
 
 const person = {
   '@context': 'https://schema.org',
@@ -15,80 +16,131 @@ const person = {
     'https://www.instagram.com/jonahkimcello',
   ],
 };
+
+// Upcoming concerts: everything not yet past when the site was built. The page shows the first three,
+// and a small script re-checks the dates in the browser so the list stays current between deploys.
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const upcoming = eventData.events
+  .filter((e) => new Date(`${e.end}T23:59:59`) >= today)
+  .map((e) => ({
+    ...e,
+    place: e.venue?.[0] ? (typeof e.venue[0] === 'string' ? e.venue[0] : e.venue[0].text) : e.details?.[0],
+  }));
 ---
 <Base title="Jonah Kim, cello" description="Official site of cellist Jonah Kim: upcoming concerts, recordings, videos, and booking." path="/" active="home">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(person)} />
 
-  <section class="hero">
-    <div class="media">
-      <img src="images/jonah-kim-hero.jpg" width="1600" height="1200" alt="Jonah Kim performing in concert">
-    </div>
-    <div>
-      <h2 class="section-title">Latest Videos</h2>
-      <div class="hero-video">
-        <YouTube id="SLEUMCG3bvU" title="Mark Abel: A Door Opens (Part 1), Jonah Kim and Keisuke Nakagoshi" />
+  <section class="home-hero">
+    <div class="home-hero-text">
+      <p class="eyebrow">Cellist</p>
+      <h1>Jonah Kim</h1>
+      <p class="home-hero-lede">Soloist and chamber musician, artistic director of the Music Society of San Miguel, and founder of the San Francisco Music Festival.</p>
+      <div class="home-hero-actions">
+        <a class="btn solid" href="/calendar.html">Upcoming Concerts</a>
+        <a class="btn" href="/listen.html">Watch &amp; Listen</a>
       </div>
-      <a class="btn solid" href="http://youtube.com/jonahkimcello" target="_blank" rel="noopener">Subscribe on YouTube</a>
+    </div>
+    <div class="home-hero-photo">
+      <img src="images/jonah-kim-concert-expressive.jpg" width="1067" height="1600" alt="Jonah Kim playing the cello in concert, eyes closed">
     </div>
   </section>
 
-  <section class="section-split">
+  {upcoming.length > 0 && (
+    <section class="home-section" id="upcoming">
+      <div class="home-section-head">
+        <h2 class="section-title">Upcoming Concerts</h2>
+        <a class="text-link" href="/calendar.html">Full calendar</a>
+      </div>
+      <ol class="upcoming">
+        {upcoming.map((e, i) => (
+          <li class="upcoming-item" data-end={e.end} hidden={i >= 3}>
+            <div class="event-date"><span class="month">{e.month}</span><span class="day">{e.day}</span></div>
+            <h3 set:html={e.title} />
+            {e.place && <p class="upcoming-place">{e.place}</p>}
+            {e.tickets
+              ? <a class="text-link" href={e.tickets} target="_blank" rel="noopener">Tickets</a>
+              : <a class="text-link" href="/calendar.html">Details</a>}
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <section class="home-section">
+    <div class="home-section-head">
+      <h2 class="section-title">Latest Releases</h2>
+      <a class="text-link" href="/discography.html">All recordings</a>
+    </div>
+    <div class="releases">
+      <div class="release">
+        <img src="images/beyond-the-pacific-cover.jpg" width="1000" height="1000" alt="Beyond the Pacific album cover">
+        <div>
+          <h3>Beyond the Pacific</h3>
+          <p class="release-sub">Trio Barclay &middot; Orchid Classics &middot; January 2026</p>
+          <p>Trio Barclay&rsquo;s debut album premieres new piano trios by Sheridan Seyfried, John Wineglass and Michael Fine.</p>
+          <a class="btn solid" href="https://orchid-music.lnk.to/BeyondThePacificWE" target="_blank" rel="noopener">Listen &amp; Buy</a>
+        </div>
+      </div>
+      <div class="release">
+        <img src="images/mark-abel-4-4-2-cover.jpg" width="1000" height="1000" alt="Mark Abel: 4.4.2 album cover">
+        <div>
+          <h3>Mark Abel: 4.4.2</h3>
+          <p class="release-sub">Delos &middot; February 2026</p>
+          <p>Includes <em>A Door Opens</em>, a new work for cello and piano, with pianist Keisuke Nakagoshi.</p>
+          <a class="btn solid" href="https://lnk.to/MarkAbel442ID" target="_blank" rel="noopener">Listen &amp; Buy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-video">
+    <div class="hero-video">
+      <YouTube id="SLEUMCG3bvU" title="Mark Abel: A Door Opens (Part 1), Jonah Kim and Keisuke Nakagoshi" />
+    </div>
+    <div>
+      <h2 class="section-title">Latest Video</h2>
+      <h3>Mark Abel: <em>A Door Opens</em> (Part 1)</h3>
+      <p class="release-sub">With Keisuke Nakagoshi, piano &middot; Kanbar Performing Arts Center, San Francisco &middot; February 2026</p>
+      <div class="home-hero-actions">
+        <a class="btn solid" href="/listen.html">More Videos</a>
+        <a class="btn" href="http://youtube.com/jonahkimcello" target="_blank" rel="noopener">Subscribe on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section press" aria-label="Press">
+    <blockquote class="press-quote">&ldquo;Pablo Casals reincarnate&rdquo;<cite>Korean International Arts Review</cite></blockquote>
+    <blockquote class="press-quote">&ldquo;&hellip;flawless delivery of its Herculean technical demands&hellip;&rdquo;<cite>Joanne Talbot, The Strad</cite></blockquote>
+    <blockquote class="press-quote">&ldquo;[Kim&rsquo;s] tone has the cosy warmth of a well-loved cashmere sweater.&rdquo;<cite>Andrew Farach-Colton, Gramophone</cite></blockquote>
+  </section>
+
+  <section class="section-split home-about">
     <div class="media">
       <img src="images/1628784723718-I33PJ2QZKFHDIGNK3MXG__image-asset.jpeg" width="2500" height="3125" alt="Jonah Kim portrait">
     </div>
     <div class="prose">
       <h2 class="section-title">About Jonah</h2>
-      <p>Jonah Kim is an artist of great charisma and originality. His tone is immediately distinguishable by its signature sweetness. His work is praised by critics and fellow musicians alike for his &ldquo;flawless delivery of Herculean technical demands&rdquo; (The Strad) and his thorough understanding and insight into the minds of composers. Aside from his cellistic prowess, he is widely regarded as one of the finest musicians in the world today. The Korean International Arts Review called him &ldquo;Pablo Casals reincarnate&rdquo;.</p>
       <p>From a young age, legendary cellist Janos Starker placed him at the &ldquo;top of his generation&rdquo;. At only 12 years of age, Jonah made his solo debut with Wolfgang Sawallisch and the Philadelphia Orchestra, and the Washington Post hailed him as &ldquo;the next Yo-Yo Ma&rdquo; at his National Symphony debut. He has since performed on the world&rsquo;s most prestigious stages.</p>
-      <p>Jonah&rsquo;s most recent recordings are <em>Beyond the Pacific</em>, Trio Barclay&rsquo;s debut album on Orchid Classics, and Mark Abel&rsquo;s <em>A Door Opens</em> with pianist Keisuke Nakagoshi, on Abel&rsquo;s Delos album <em>4.4.2</em>. His earlier album <em>Approaching Autumn</em>, his second for Delos, is titled after the new American work by Mark Abel, bridging behemoths, the Kod&aacute;ly Solo and the Grieg sonatas, with Robert Koenig on the piano.</p>
       <p>In 2021, Jonah founded Trio Barclay with childhood friends Sean Kennard and Dennis Kim, ensemble-in-residence at the Barclay Theatre in Orange County. In 2024, Jonah was named artistic director of the Music Society of San Miguel, and he is founder and director of the San Francisco Music Festival.</p>
-      <p>Born in Seoul, South Korea, Jonah trained at The Juilliard School and the Curtis Institute of Music. He makes his home in San Francisco with his wife, American ballerina Julia Rowe.</p>
-      <a class="btn" href="about.html">More About Jonah</a>
+      <a class="btn" href="/about.html">More About Jonah</a>
     </div>
   </section>
 
-  <section class="section-split reverse">
-    <div class="media">
-      <img src="images/1628830446739-U2QWAJI6X5TP5C2AQPPT__Screen-Shot-2021-08-12-at-9.52.27-PM.png" width="884" height="876" alt="Approaching Autumn album cover">
-    </div>
-    <div>
-      <h2 class="section-title">Approaching Autumn</h2>
-      <p class="album-credit">with Robert Koenig, pianist &mdash; Kod&aacute;ly, Abel &amp; Grieg</p>
-      <a class="btn solid" href="https://newalbm.link/approachingautumn" target="_blank" rel="noopener">Order Now</a>
-      <a class="btn" href="https://newalbm.link/approachingautumn" target="_blank" rel="noopener">Stream Online</a>
-
-      <div class="reviews reviews-inline">
-        <blockquote class="pull-quote">
-          &ldquo;&hellip;flawless delivery of its Herculean technical demands&hellip; the sense of exhilaration in this performance has us on the edge of our seats.&rdquo;
-          <cite>Joanne Talbot, The Strad</cite>
-        </blockquote>
-        <blockquote class="pull-quote">
-          &ldquo;Impactful and dramatic. [Kim&rsquo;s] tone has the cosy warmth of a well-loved cashmere sweater.&rdquo;
-          <cite>Andrew Farach-Colton, Gramophone</cite>
-        </blockquote>
-        <blockquote class="pull-quote">
-          &ldquo;Kim dives into this music with courage underpinned by formidable technical prowess&hellip; Kim and Koenig partner beyond perfection.&rdquo;
-          <cite>Rafael de Acha, All About the Arts</cite>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-split">
-    <div class="media">
-      <img src="images/1628794878479-IZXWY7MHSVXWFP0NPESO__Screen-Shot-2021-08-12-at-12.00.48-PM.png" width="860" height="850" alt="Rachmaninoff and Barber Cello Sonatas album cover">
-    </div>
-    <div>
-      <h2 class="section-title">Also Available</h2>
-      <p class="album-subtitle">Rachmaninoff &amp; Barber: Cello Sonatas</p>
-      <p class="album-credit">with Sean Kennard, pianist</p>
-      <p class="prose">Cellist Jonah Kim and pianist Sean Kennard have been making music together since they were teenagers at the Curtis Institute of Music. The Rachmaninoff Sonata and the Sonata by Samuel Barber hold a special place for them.</p>
-      <blockquote class="pull-quote">
-        &ldquo;With his pulsating vibrato and intense expressivity, Kim asserts the cello&rsquo;s eloquent personality throughout the varied atmospheres.&rdquo;
-        <cite>Donald Rosenberg, Gramophone</cite>
-      </blockquote>
-      <a class="btn solid" href="https://smarturl.it/kimkennardrachbarber" target="_blank" rel="noopener">Order Now</a>
-    </div>
-  </section>
-
+  <script slot="end" is:inline>
+    // Keep "Upcoming Concerts" current: hide events that have passed and show the next three.
+    (function () {
+      var section = document.getElementById('upcoming');
+      if (!section) return;
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var shown = 0;
+      section.querySelectorAll('.upcoming-item').forEach(function (item) {
+        var upcoming = new Date(item.dataset.end + 'T23:59:59') >= today;
+        item.hidden = !upcoming || shown >= 3;
+        if (upcoming) shown++;
+      });
+      if (shown === 0) section.hidden = true;
+    })();
+  </script>
 </Base>
