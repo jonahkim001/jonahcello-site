@@ -254,6 +254,55 @@ h2.section-title {
   border-radius: 3px;
 }
 
+.season-intro {
+  margin: -24px 0 48px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.event-year {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.events { list-style: none; margin: 0 0 56px; padding: 0; }
+.event {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.event:last-child { border-bottom: 0; }
+.event-date { display: flex; flex-direction: column; line-height: 1.2; }
+.event-date .month {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.event-date .day {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+.event-body h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.event-body p { margin: 0; color: #33303a; }
+.event-body .venue { color: var(--muted); font-size: 0.92rem; }
+.event.past { opacity: 0.45; }
+@media (max-width: 500px) {
+  .event { grid-template-columns: 72px 1fr; gap: 16px; }
+  .event-date .day { font-size: 1.25rem; }
+}
+
 .form-grid {
   display: grid;
   gap: 20px;
