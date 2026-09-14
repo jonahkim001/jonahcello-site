@@ -36,7 +36,7 @@ const structuredData = {
         location: place(showing.venue),
         image: 'https://www.jonahcello.com/images/jonah-kim-hero.jpg',
         performer: event.listing.performers.map(performer),
-        offers: { '@type': 'Offer', url: event.tickets },
+        ...(event.tickets && { offers: { '@type': 'Offer', url: event.tickets } }),
       })),
     ),
 };
@@ -57,7 +57,12 @@ const structuredData = {
               {event.badge && <span class="badge">{event.badge}</span>}
               <h3 set:html={event.title} />
               {event.details?.map((line) => <p>{line}</p>)}
-              {event.venue?.map((line) => <p class="venue">{line}</p>)}
+              {event.venue?.map((line) => {
+                // A venue line is plain text, or { text, link: { label, url } } to link part of it.
+                if (typeof line === 'string') return <p class="venue">{line}</p>;
+                const [before, after] = line.text.split(line.link.label);
+                return <p class="venue">{before}<a href={line.link.url} target="_blank" rel="noopener">{line.link.label}</a>{after}</p>;
+              })}
               {event.tickets && <a class="btn event-tickets" href={event.tickets} target="_blank" rel="noopener">Tickets</a>}
             </div>
           </li>

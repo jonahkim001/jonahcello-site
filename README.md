@@ -35,7 +35,7 @@ Pages keep their `.html` addresses (`/about.html`, `/calendar.html`, ...).
 - `title`: the event name. Simple HTML like `<em>` is allowed.
 - `badge` (optional): a small tag above the title, e.g. `"To be confirmed"`.
 - `details` (optional): lines of plain text under the title.
-- `venue` (optional): smaller grey lines for times and places.
+- `venue` (optional): smaller grey lines for times and places. To link part of a line, write it as `{ "text": "7:30 PM, Peninsula Temple Sholom, Burlingame", "link": { "label": "Peninsula Temple Sholom", "url": "https://www.sholom.org/" } }`; the `label` words become the link.
 - `tickets` (optional): ticket link; adds a Tickets button.
 - `listing` (optional): add this only once the date, start time, and venue are confirmed. It lets Google show the concert in event search results. Venues are defined once under `venues` at the top of the file.
 

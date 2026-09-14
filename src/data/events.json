@@ -4,18 +4,19 @@
     "civic": { "name": "Santa Cruz Civic Auditorium", "street": "307 Church St", "city": "Santa Cruz", "region": "CA", "postalCode": "95060" },
     "mello": { "name": "Henry J. Mello Center for the Performing Arts", "street": "250 E Beach St", "city": "Watsonville", "region": "CA", "postalCode": "95076" },
     "peace": { "name": "Peace United Church", "street": "900 High St", "city": "Santa Cruz", "region": "CA", "postalCode": "95060" },
-    "barclay": { "name": "Irvine Barclay Theatre", "street": "4242 Campus Dr", "city": "Irvine", "region": "CA", "postalCode": "92612" }
+    "barclay": { "name": "Irvine Barclay Theatre", "street": "4242 Campus Dr", "city": "Irvine", "region": "CA", "postalCode": "92612" },
+    "swedenborgian": { "name": "Swedenborgian Church of San Francisco", "street": "2107 Lyon St", "city": "San Francisco", "region": "CA", "postalCode": "94115" }
   },
   "events": [
     {
       "month": "Sep", "day": "20", "end": "2026-09-20",
       "title": "Kol Nidrei",
-      "venue": ["Peninsula Temple Sholom"]
+      "venue": [{ "text": "7:30 PM, Peninsula Temple Sholom, Burlingame", "link": { "label": "Peninsula Temple Sholom", "url": "https://www.sholom.org/" } }]
     },
     {
       "month": "Sep", "day": "21", "end": "2026-09-21",
       "title": "Music for Yom Kippur",
-      "venue": ["Peninsula Temple Sholom"]
+      "venue": [{ "text": "Peninsula Temple Sholom, Burlingame", "link": { "label": "Peninsula Temple Sholom", "url": "https://www.sholom.org/" } }]
     },
     {
       "month": "Oct", "day": "3–4", "end": "2026-10-04",
@@ -35,7 +36,13 @@
     {
       "month": "Oct", "day": "9", "end": "2026-10-09",
       "title": "San Francisco Music Festival",
-      "details": ["Recital with pianist Alon Goldstein"]
+      "details": ["Recital with pianist Alon Goldstein"],
+      "venue": ["7:00 PM, Swedenborgian Church, San Francisco"],
+      "listing": {
+        "name": "Jonah Kim and Alon Goldstein: San Francisco Music Festival",
+        "performers": [{ "person": "Jonah Kim" }, { "person": "Alon Goldstein" }],
+        "showings": [{ "start": "2026-10-09T19:00:00-07:00", "venue": "swedenborgian" }]
+      }
     },
     {
       "month": "Oct", "day": "11", "end": "2026-10-11",
@@ -94,7 +101,7 @@
     {
       "month": "Mar", "day": "14", "end": "2027-03-14",
       "title": "Bach Solo Cello Suites",
-      "venue": ["Samper Hall, Cabrillo College, Santa Cruz"]
+      "venue": ["Samper Hall, Cabrillo College, Aptos"]
     },
     {
       "month": "Apr", "day": "TBA", "end": "2027-04-30",
@@ -104,7 +111,7 @@
     {
       "month": "May", "day": "16", "end": "2027-05-16",
       "title": "Tchaikovsky <em>Souvenir de Florence</em> & more",
-      "venue": ["Samper Hall, Cabrillo College, Santa Cruz"]
+      "venue": ["Samper Hall, Cabrillo College, Aptos"]
     },
     {
       "month": "Jun", "day": "10", "end": "2027-06-10",
