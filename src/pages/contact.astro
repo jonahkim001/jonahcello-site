@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import SocialIcons from '../components/SocialIcons.astro';
 ---
 <Base title="Contact — Jonah Kim" description="Contact cellist Jonah Kim for booking and inquiries." path="/contact.html" active="contact">
   <h1 class="page-title">Contact</h1>
@@ -37,9 +38,5 @@ import Base from '../layouts/Base.astro';
   </form>
 
   <h2 class="section-title spaced">Social Media</h2>
-  <div class="social-icons">
-    <a href="http://youtube.com/jonahkimcello" aria-label="YouTube">YT</a>
-    <a href="https://www.facebook.com/jonahkimcello/" aria-label="Facebook">FB</a>
-    <a href="https://www.instagram.com/jonahkimcello" aria-label="Instagram">IG</a>
-  </div>
+  <SocialIcons />
 </Base>

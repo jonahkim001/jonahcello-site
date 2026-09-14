@@ -1,29 +1,30 @@
 ---
 // Shared page shell: <head> tags, header, nav, and footer used by every page.
 import eventData from '../data/events.json';
+import SocialIcons from '../components/SocialIcons.astro';
 interface Props {
   title: string;
   description: string;
-  /** Page path on the live site, e.g. "/about.html" (used for canonical and share URLs). */
-  path: string;
+  /** Page path on the live site, e.g. "/about.html" (used for canonical and share URLs). Omit for pages that shouldn't be indexed. */
+  path?: string;
   /** Which nav link to highlight. */
   active?: string;
 }
 
 const { title, description, path, active } = Astro.props;
 const site = 'https://www.jonahcello.com';
-const url = `${site}${path}`;
+const url = path ? `${site}${path}` : undefined;
 const shareImage = `${site}/images/jonah-kim-hero.jpg`;
 
 const nav = [
-  { key: 'home', href: 'index.html', label: 'Home' },
-  { key: 'about', href: 'about.html', label: 'About' },
-  { key: 'records', href: 'discography.html', label: 'Records' },
-  { key: 'stream', href: 'listen.html', label: 'Stream' },
-  { key: 'photos', href: 'gallery.html', label: 'Photos' },
-  { key: 'store', href: 'store.html', label: 'Store' },
-  { key: 'calendar', href: 'calendar.html', label: 'Calendar' },
-  { key: 'contact', href: 'contact.html', label: 'Contact' },
+  { key: 'home', href: '/', label: 'Home' },
+  { key: 'about', href: '/about.html', label: 'About' },
+  { key: 'records', href: '/discography.html', label: 'Records' },
+  { key: 'stream', href: '/listen.html', label: 'Stream' },
+  { key: 'photos', href: '/gallery.html', label: 'Photos' },
+  { key: 'store', href: '/store.html', label: 'Store' },
+  { key: 'calendar', href: '/calendar.html', label: 'Calendar' },
+  { key: 'contact', href: '/contact.html', label: 'Contact' },
 ];
 
 // Announcement bar: the next performance from events.json. The build picks one, and a small
@@ -40,11 +41,6 @@ const isUpcoming = (e, now) => {
 };
 const next = upcoming.find((e) => isUpcoming(e, new Date()));
 
-const social = [
-  { href: 'http://youtube.com/jonahkimcello', label: 'YouTube', short: 'YT' },
-  { href: 'https://www.facebook.com/jonahkimcello/', label: 'Facebook', short: 'FB' },
-  { href: 'https://www.instagram.com/jonahkimcello', label: 'Instagram', short: 'IG' },
-];
 ---
 <!doctype html>
 <html lang="en">
@@ -53,25 +49,26 @@ const social = [
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content={description}>
-<link rel="canonical" href={url}>
+{url && <link rel="canonical" href={url}>}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jonah Kim, cello">
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
-<meta property="og:url" content={url}>
+{url && <meta property="og:url" content={url}>}
+{!url && <meta name="robots" content="noindex">}
 <meta property="og:image" content={shareImage}>
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/styles.css">
 <slot name="head" />
 </head>
 <body>
 <div class="announce" id="announce">{next ? (
   <>Next performance &middot; {next.date} &middot; {next.title} &middot; {next.tickets
     ? <a href={next.tickets} target="_blank" rel="noopener">Tickets</a>
-    : <a href="calendar.html">Details</a>}</>
+    : <a href="/calendar.html">Details</a>}</>
 ) : <>&nbsp;</>}</div>
 <script is:inline define:vars={{ upcoming }}>
   (function () {
@@ -89,7 +86,7 @@ const social = [
       link.rel = 'noopener';
       link.textContent = 'Tickets';
     } else {
-      link.href = 'calendar.html';
+      link.href = '/calendar.html';
       link.textContent = 'Details';
     }
     bar.append(link);
@@ -97,12 +94,10 @@ const social = [
 </script>
 <header class="site-header">
   <div class="brand">
-    <a href="index.html"><img src="images/jonah-signature.png" width="732" height="432" alt="Jonah Kim"></a>
+    <a href="/"><img src="/images/jonah-signature.png" width="732" height="432" alt="Jonah Kim"></a>
     <span class="tagline">Official site of cellist Jonah Kim</span>
   </div>
-  <div class="social-icons">
-    {social.map((s) => <a href={s.href} aria-label={s.label}>{s.short}</a>)}
-  </div>
+  <SocialIcons />
 </header>
 <nav class="site-nav">
   <ul>
@@ -117,9 +112,7 @@ const social = [
 </main>
 
 <footer class="site-footer">
-  <div class="social-icons">
-    {social.map((s) => <a href={s.href} aria-label={s.label}>{s.short}</a>)}
-  </div>
+  <SocialIcons />
   <p>&copy; {new Date().getFullYear()} Jonah Kim. All rights reserved.</p>
 </footer>
 <slot name="end" />
