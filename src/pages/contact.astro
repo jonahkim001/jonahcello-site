@@ -1,28 +1,29 @@
 ---
 import Base from '../layouts/Base.astro';
 import SocialIcons from '../components/SocialIcons.astro';
+
+// Messages are delivered by Formspree (formspree.io) to the inbox set on the form in Tyson's Formspree account.
+const formEndpoint = 'https://formspree.io/f/xgaejrra';
 ---
 <Base title="Contact — Jonah Kim" description="Contact cellist Jonah Kim for booking and inquiries." path="/contact.html" active="contact">
   <h1 class="page-title">Contact</h1>
+  <p class="contact-intro">For booking and all other inquiries, send a message below. It goes directly to Jonah.</p>
 
-  <div class="notice">
-    This form currently opens your own email client with the message pre-filled (no server behind it, since the site is now static). If you&rsquo;d rather have replies land straight in an inbox, swap the form&rsquo;s <code>action</code> for a free service like Formspree, or replace it with a simple mailto link.
-  </div>
-
-  <form class="form-grid" action="mailto:booking@jonahcello.com" method="post" enctype="text/plain">
+  <form class="form-grid" id="contact-form" action={formEndpoint} method="POST">
+    <input type="hidden" name="_subject" value="New message from jonahcello.com">
     <div class="name-row">
       <div>
         <label for="fname">First Name (required)</label>
-        <input id="fname" name="First Name" type="text" required>
+        <input id="fname" name="First Name" type="text" autocomplete="given-name" required>
       </div>
       <div>
         <label for="lname">Last Name (required)</label>
-        <input id="lname" name="Last Name" type="text" required>
+        <input id="lname" name="Last Name" type="text" autocomplete="family-name" required>
       </div>
     </div>
     <div>
       <label for="email">Email Address (required)</label>
-      <input id="email" name="Email" type="email" required>
+      <input id="email" name="email" type="email" autocomplete="email" required>
     </div>
     <div>
       <label for="subject">Subject (required)</label>
@@ -32,11 +33,63 @@ import SocialIcons from '../components/SocialIcons.astro';
       <label for="message">Message (required)</label>
       <textarea id="message" name="Message" required></textarea>
     </div>
-    <div>
-      <button type="submit" class="btn solid">Submit</button>
+    <!-- Spam trap: hidden from people, but bots that fill every field get filtered out by Formspree. -->
+    <div class="form-trap" aria-hidden="true">
+      <label for="gotcha">Leave this field empty</label>
+      <input id="gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
     </div>
+    <div>
+      <button type="submit" class="btn solid">Send Message</button>
+    </div>
+    <p class="form-status" role="status" aria-live="polite" hidden></p>
   </form>
+
+  <div class="form-sent" id="form-sent" tabindex="-1" hidden>
+    <h2 class="section-title">Thanks, your message was sent.</h2>
+    <p>Jonah will reply to the email address you entered.</p>
+  </div>
 
   <h2 class="section-title spaced">Social Media</h2>
   <SocialIcons />
+
+  <script slot="end" is:inline>
+    // Send the form in the background so visitors stay on the page. Without JavaScript,
+    // the form posts to Formspree normally and shows Formspree's own confirmation page.
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = form.querySelector('.form-status');
+      var button = form.querySelector('button[type="submit"]');
+      var sent = document.getElementById('form-sent');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var subject = form.querySelector('#subject').value.trim();
+        form.querySelector('input[name="_subject"]').value = 'jonahcello.com: ' + (subject || 'New message');
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        status.hidden = true;
+
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+          .then(function (response) {
+            return response.json().catch(function () { return {}; }).then(function (data) {
+              if (!response.ok) {
+                var detail = data.errors && data.errors.map(function (err) { return err.message; }).join(' ');
+                throw new Error(detail || 'The message could not be sent.');
+              }
+            });
+          })
+          .then(function () {
+            form.hidden = true;
+            sent.hidden = false;
+            sent.focus();
+          })
+          .catch(function (err) {
+            status.textContent = err.message + ' Please check your connection and try again.';
+            status.hidden = false;
+            button.disabled = false;
+            button.textContent = 'Send Message';
+          });
+      });
+    })();
+  </script>
 </Base>

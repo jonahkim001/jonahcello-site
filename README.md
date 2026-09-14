@@ -22,6 +22,7 @@ The repo is connected to Vercel. **Every push to `main` builds the site and publ
 | `public/styles.css` | All styling. |
 | `public/images/` | Photos, album covers, and the logo (`jonah-signature.png`). |
 | `public/` | Everything else copied as-is: favicon, `robots.txt`, `sitemap.xml`. |
+| `src/pages/contact.astro` | Contact form. Messages are delivered by [Formspree](https://formspree.io) (form `xgaejrra`, in Tyson's Formspree account) to Jonah's inbox. |
 | `vercel.json` | Build settings and redirects from old Squarespace addresses (e.g. `/about`, `/concerts`). |
 
 Pages keep their `.html` addresses (`/about.html`, `/calendar.html`, ...). There is no Store page for now: `/store` and `/store.html` redirect to the Records page, where each album links to where it can be bought.

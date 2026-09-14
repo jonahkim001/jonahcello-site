@@ -596,3 +596,14 @@ button.btn { cursor: pointer; border: none; font-family: inherit; }
 }
 
 .photo-credit { margin: -24px 0 28px; font-size: 0.85rem; color: var(--muted); }
+
+/* Contact form */
+.contact-intro { margin: -16px 0 32px; max-width: 60ch; color: #33303a; }
+.form-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-grid button[disabled] { opacity: 0.7; cursor: progress; }
+.form-status { margin: 0; color: #a63c2b; font-size: 0.92rem; }
+.form-status[hidden], .form-sent[hidden], .form-grid[hidden] { display: none; }
+.form-sent { max-width: 560px; padding: 28px 30px; background: #f6f2f8; border-radius: 3px; }
+.form-sent:focus { outline: none; }
+.form-sent .section-title { font-size: 1.5rem; margin-bottom: 8px; }
+.form-sent p { margin: 0; color: #33303a; }
