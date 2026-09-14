@@ -22,7 +22,6 @@ const nav = [
   { key: 'records', href: '/discography.html', label: 'Records' },
   { key: 'stream', href: '/listen.html', label: 'Stream' },
   { key: 'photos', href: '/gallery.html', label: 'Photos' },
-  { key: 'store', href: '/store.html', label: 'Store' },
   { key: 'calendar', href: '/calendar.html', label: 'Calendar' },
   { key: 'contact', href: '/contact.html', label: 'Contact' },
 ];
@@ -46,6 +45,7 @@ const next = upcoming.find((e) => isUpcoming(e, new Date()));
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script is:inline>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content={description}>
@@ -99,13 +99,25 @@ const next = upcoming.find((e) => isUpcoming(e, new Date()));
   </div>
   <SocialIcons />
 </header>
-<nav class="site-nav">
-  <ul>
+<nav class="site-nav" aria-label="Main">
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+  <ul id="site-menu">
     {nav.map((item) => (
       <li><a href={item.href} class={item.key === active ? 'active' : undefined}>{item.label}</a></li>
     ))}
   </ul>
 </nav>
+<script is:inline>
+  // Phone menu: the nav collapses behind a Menu button on narrow screens.
+  (function () {
+    var nav = document.querySelector('.site-nav');
+    var button = nav.querySelector('.nav-toggle');
+    button.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
+</script>
 
 <main>
 <slot />

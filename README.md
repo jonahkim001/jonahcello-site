@@ -14,7 +14,7 @@ The repo is connected to Vercel. **Every push to `main` builds the site and publ
 
 | Path | What it is |
 |---|---|
-| `src/data/events.json` | **Concerts.** Drives the Calendar page, the "Next performance" bar at the top of every page, and the search-engine event data. |
+| `src/data/events.json` | **Concerts.** Drives the Calendar page, the "Next performance" bar at the top of every page, the "Upcoming Concerts" section on the home page, and the search-engine event data. |
 | `src/data/videos.json` | **Videos and recordings** on the Stream page, including which ones are featured. |
 | `src/pages/*.astro` | One file per page (`index.astro` is Home, `404.astro` is the page-not-found page). Mostly plain HTML. |
 | `src/layouts/Base.astro` | Shared `<head>`, announcement bar, header, nav, and footer used by every page. |
@@ -24,7 +24,7 @@ The repo is connected to Vercel. **Every push to `main` builds the site and publ
 | `public/` | Everything else copied as-is: favicon, `robots.txt`, `sitemap.xml`. |
 | `vercel.json` | Build settings and redirects from old Squarespace addresses (e.g. `/about`, `/concerts`). |
 
-Pages keep their `.html` addresses (`/about.html`, `/calendar.html`, ...).
+Pages keep their `.html` addresses (`/about.html`, `/calendar.html`, ...). There is no Store page for now: `/store` and `/store.html` redirect to the Records page, where each album links to where it can be bought.
 
 ## Common edits
 

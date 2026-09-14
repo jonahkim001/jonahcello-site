@@ -16,6 +16,8 @@
     { "source": "/calendar", "destination": "/calendar.html", "permanent": false },
     { "source": "/concerts", "destination": "/calendar.html", "permanent": false },
     { "source": "/contact", "destination": "/contact.html", "permanent": false },
+    { "source": "/store", "destination": "/discography.html", "permanent": false },
+    { "source": "/store.html", "destination": "/discography.html", "permanent": false },
     { "source": "/blog", "destination": "/", "permanent": false },
     { "source": "/blog/:path*", "destination": "/", "permanent": false }
   ]
