@@ -176,6 +176,29 @@ h2.section-title {
 .media img { border-radius: 3px; }
 
 .reviews { display: flex; flex-direction: column; gap: 32px; margin: 40px 0; }
+.reviews.reviews-inline { margin-top: 32px; }
+
+.section-title.spaced { margin-top: 56px; }
+
+.hero-video {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 16px;
+}
+.hero-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+.album-credit { color: var(--muted); margin-bottom: 18px; }
+.album-subtitle {
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+}
+
+button.btn { cursor: pointer; border: none; font-family: inherit; }
 
 .album-grid {
   display: flex;
@@ -199,6 +222,8 @@ h2.section-title {
 .album .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 14px; }
 .album .tracklist { color: #55505c; font-size: 0.92rem; margin: 14px 0; }
 .album .tracklist ol { padding-left: 20px; margin: 8px 0; }
+.album .track-list { color: #55505c; font-size: 0.92rem; }
+.album .pull-quote { margin: 14px 0; }
 .album.coming-soon .cover { position: relative; }
 .badge {
   display: inline-block;
@@ -237,6 +262,7 @@ h2.section-title {
   margin: 0 0 6px;
 }
 .video-item .meta { color: var(--muted); font-size: 0.85rem; white-space: pre-line; }
+.video-item audio { width: 100%; margin-top: 10px; }
 .video-item .stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; }
 
 .gallery-grid {
