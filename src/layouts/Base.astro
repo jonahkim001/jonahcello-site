@@ -1,5 +1,6 @@
 ---
 // Shared page shell: <head> tags, header, nav, and footer used by every page.
+import eventData from '../data/events.json';
 interface Props {
   title: string;
   description: string;
@@ -24,6 +25,20 @@ const nav = [
   { key: 'calendar', href: 'calendar.html', label: 'Calendar' },
   { key: 'contact', href: 'contact.html', label: 'Contact' },
 ];
+
+// Announcement bar: the next performance from events.json. The build picks one, and a small
+// script re-picks it in the browser so the bar stays current between deploys.
+const upcoming = eventData.events.map((e) => ({
+  end: e.end,
+  date: e.day === 'TBA' ? e.month : `${e.month} ${e.day}`,
+  title: e.title.replace(/<[^>]+>/g, ''),
+  tickets: e.tickets ?? null,
+}));
+const isUpcoming = (e, now) => {
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return new Date(`${e.end}T23:59:59`) >= today;
+};
+const next = upcoming.find((e) => isUpcoming(e, new Date()));
 
 const social = [
   { href: 'http://youtube.com/jonahkimcello', label: 'YouTube', short: 'YT' },
@@ -53,7 +68,33 @@ const social = [
 <slot name="head" />
 </head>
 <body>
-<div class="announce">&nbsp;</div>
+<div class="announce" id="announce">{next ? (
+  <>Next performance &middot; {next.date} &middot; {next.title} &middot; {next.tickets
+    ? <a href={next.tickets} target="_blank" rel="noopener">Tickets</a>
+    : <a href="calendar.html">Details</a>}</>
+) : <>&nbsp;</>}</div>
+<script is:inline define:vars={{ upcoming }}>
+  (function () {
+    var bar = document.getElementById('announce');
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var next = upcoming.find(function (e) { return new Date(e.end + 'T23:59:59') >= today; });
+    bar.textContent = '';
+    if (!next) { bar.innerHTML = '&nbsp;'; return; }
+    bar.append('Next performance · ' + next.date + ' · ' + next.title + ' · ');
+    var link = document.createElement('a');
+    if (next.tickets) {
+      link.href = next.tickets;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'Tickets';
+    } else {
+      link.href = 'calendar.html';
+      link.textContent = 'Details';
+    }
+    bar.append(link);
+  })();
+</script>
 <header class="site-header">
   <div class="brand">
     <a href="index.html"><img src="images/jonah-signature.png" alt="Jonah Kim"></a>
