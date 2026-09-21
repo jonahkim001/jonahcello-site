@@ -607,3 +607,51 @@ button.btn { cursor: pointer; border: none; font-family: inherit; }
 .form-sent:focus { outline: none; }
 .form-sent .section-title { font-size: 1.5rem; margin-bottom: 8px; }
 .form-sent p { margin: 0; color: #33303a; }
+
+/* Beta store */
+.beta-flag {
+  margin: -16px 0 32px;
+  padding: 12px 18px;
+  border-left: 3px solid var(--accent);
+  background: #f6f2f8;
+  font-size: 0.9rem;
+  color: #33303a;
+}
+.store-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; }
+.product { display: flex; flex-direction: column; gap: 16px; }
+.product-media img { border-radius: 3px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.product-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  background: #f6f2f8;
+}
+.product-placeholder span {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+}
+.product-body { display: flex; flex-direction: column; gap: 8px; }
+.product-format { margin: 0; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.product h2 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.product-price { margin: 0; font-size: 1.05rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+.price-was { margin-left: 10px; color: var(--muted); font-size: 0.9rem; text-decoration: line-through; }
+.product-description { margin: 0; font-size: 0.92rem; color: #33303a; }
+.product-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 4px; }
+.product-actions .btn { margin: 0; }
+.product-actions .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.product-actions .btn[disabled]:hover { background: var(--accent); border-color: var(--accent); }
+.store-note { margin-top: 56px; }
+.store-note p { margin: 0 0 8px; font-size: 0.9rem; }
+.store-note ul { margin: 0; padding-left: 20px; font-size: 0.9rem; }
+@media (max-width: 860px) {
+  .store-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+}
+@media (max-width: 520px) {
+  .store-grid { grid-template-columns: 1fr; }
+}
